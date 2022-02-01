@@ -1,14 +1,14 @@
-# MMArduinoHProt [![Build Status](https://travis-ci.com/drjrkuhn/MMArduinoHProt.svg?branch=master)](https://travis-ci.com/drjrkuhn/MMArduinoHProt)
+# MMArduinoCom [![Build Status](https://travis-ci.com/drjrkuhn/MMArduinoCom.svg?branch=master)](https://travis-ci.com/drjrkuhn/MMArduinoCom)
 
-Micro-Manager Arduino Device Driver using a low-latency communication protocol.
+Micro-Manager Arduino Device Driver using MessagePack, SLIP, CRC, and ACK/NAK.
 
 This library uses C++11 templates extensively. The default Visual Studio 2010 install doesn't work. 
-You will need at least Visual Studio 2013 to build device drivers using this method. 
+You will need at least Visual Studio 2019 to build device drivers using this method. 
 The current version of MM and the device adapters need some tweaking to 
-build with VisualStudio 2013.
+build with VisualStudio 2019.
 
-Note that VisualStudio 2013 (aka VS2013)
-is actually version 12.0 of the compiler (don't confuse with the release year, 2013). 
+Note that VisualStudio 2019 (aka VS2019)
+is actually version 16.11 of the compiler (don't confuse with the release year, 2013). 
 So don't be alarmed when you see v12 in these instructions
 
 Basic setup
@@ -23,6 +23,34 @@ Basic setup
 3. These instructions were for an earlier version of Visual Studio, and we need
    a few more modifications.
    
+   
+### MM device adapter development environment
+   
+Note that there is now a vs2019 branch of the [mmCoreAndDevices](https://github.com/micro-manager/mmCoreAndDevices).
+We will be using that branch, which currently uses boost_1_77_0. Checkout mmCoreAndDevices and switch to the vs2019 branch.
+Download the 3rdpartypublic repository and the boost version 1.77.0 distribution and unpack into a new boost-versions folder
+under 3rdpartypublic.
+
+Final folder structure should look like this
+
+```
+mmdevel
+├───3rdpartypublic/
+│   └───boost-versions/
+│       └───boost_1_77_0/
+│           ├───boost
+│           ├───doc
+│           ├───...
+│           └───README.md
+└───micro-manager2
+    └───mmCoreAndDevices
+            ├───build
+            ├───buildscripts
+            ├───...
+            └───README.md
+```
+
+<!--
 
 Boost library update
 --------------------
@@ -115,7 +143,8 @@ to match during the linking process.
    - MMDevice-StaticRuntime
    - MMCoreJ_wrap
    - MMCorePy_wrap
-   
+
+-->   
 
 Acknowledgements
 =================
