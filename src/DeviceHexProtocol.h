@@ -45,7 +45,7 @@ of this pattern
 Friendly Access
 ------------------------------------
 Although your target DEV device is derived from CDeviceBase,
-it does not have third-party access to CDeviceBase's
+it does not have third-party access to sibling CDeviceBase's
 WriteToComPort, GetSerialAnswer, LogMessage, or PurgeComPort
 methods directly. The old way was to declare DeviceHexProtocol
 as a friend in your device to grant it access to WriteToComPort, etc.
